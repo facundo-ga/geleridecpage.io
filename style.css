@@ -1,0 +1,558 @@
+* {
+	margin: 0; 
+	padding: 0;
+    box-sizing: border-box;
+   
+}
+
+body {
+    background: linear-gradient(#48d5f1, #eaf513);
+    background: -webkit-linear-gradient(to right, );  /* Chrome 10-25, Safari 5.1-6 */
+    background: -o-linear-gradient(#E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+
+.contenedor-galeria ul:hover li {
+    width: 65px;
+    filter: grayscale(100%);
+}
+.contenedor-galeria ul li:hover {
+    width: 640px;
+    filter: grayscale(0%);
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 98px;
+    margin-bottom: 50px;
+    color:  olive (43, 111, 61);
+    text-shadow: 0 1px 2px #000;
+    
+}
+
+
+p {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: rgb(228, 249, 0);
+    text-shadow: 0 1px 2px #000;
+    font-size: 30px; 
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Coloca la imagen detrás de otros elementos */
+}
+
+.overlay-image {
+    width: 1500px;
+    height: auto;
+    transition: transform 3s ease-in-out; /* Efecto hover lento */
+    animation: hoverEffect 3s ease-in-out infinite alternate; /* Animación infinita */
+}
+
+/* Animación de hover infinita */
+@keyframes hoverEffect {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+/*Time to apply widths for accordian to work
+Width of image = 2000px
+total images = 6
+so width of hovered image = 2000px
+width of un-hovered image = 40px - you can set this to anything
+so total container width = 2000 + 40*6 = 2240px;
+default width = 2240/6 = 373px;
+*/
+
+/* Estilos para los botones de reproducción de video y audio */
+.download-button {
+  
+    left: -50%;
+   display:inline-block ; 
+    /* margin: 0 10px; Ajuste de los márgenes */
+    padding: 10px 20px;
+    border: 2px solid olive;
+    border-radius: 5px;
+    background-color: transparent;
+    color: olive;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .download-button:hover {
+    background-color: olive;
+    color: white;
+  }
+  
+  /* Estilo adicional para evitar problemas con el body */
+  button.download-button {
+    background-color: transparent; /* Restablece el color de fondo */
+    border-color: rgba(128, 128, 0, 0.742); /* Restablece el color del borde */
+    color: rgb(0, 0, 0); /* Restablece el color del texto */
+  }
+  
+
+.contenedor-galeria {
+    width: 900px;
+    height: 400px;
+    overflow: hidden;
+    margin: 50px auto;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+    filter: grayscale(100%)
+}  
+
+.contenedor-galeria:hover {
+    filter: grayscale(0%); 
+    transition: filter 0.5s ease;
+}
+
+
+.contenedor-galeria ul {
+    width: 2000px;
+}
+
+.contenedor-galeria li {
+    position: relative;
+    display: block;
+    width: 160px;
+    float: left;
+    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s;
+}
+
+.contenedor-galeria ul:hover li {
+    width: 65px;
+    filter: brightness(50%);
+}
+
+.contenedor-galeria ul li:hover {
+    width: 640px;
+    filter: brightness(100%);
+}
+
+.contenedor-galeria li img {
+    display: block;
+    width: 640px;
+    height: 100%;
+}
+
+.titulo-imagen {
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    display: block;
+    transition: all 0.5s ease;
+    animation: cambia-color 10s linear infinite;
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8));
+    background-size: 400% 400%;
+}
+
+@keyframes cambia-color {
+    0% {
+        background-position: 0%, 50%;
+    }
+    50% {
+        background-position: 100%, 50%;
+    }
+    100% {
+        background-position: 0%, 100%;
+    }
+}
+
+.titulo-imagen a {
+    display: block;
+    color: #ffffff;
+    text-decoration: kristen ITC;
+    text-align: center;
+    padding: 20px;
+    font-size: 19px;
+    text-shadow: 0 1px 2px #000;
+    transition: all 0.5s ease;
+}
+
+.contenedor-galeria ul li:hover .titulo-imagen {
+    top: 0%;
+    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-imagen:hover a {
+    transform: scale(1.6);
+    transition: all 0.8s ease;
+}
+
+.titulo-imagen:active {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    
+}
+.video-button {
+    background-color: rgba(128, 128, 0, 0.632);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative; /* Añade posición relativa */
+    top: -21px; /* Levanta el botón 8px */
+    left: 270px;
+  
+}
+
+.video-button:hover {
+    transform: scale(1.2);
+}
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 700px; /* Doble del ancho predeterminado para PC */
+    /*height: 480px;  Doble del alto predeterminado para PC */
+    height: auto; /* Alto ajustado para celular */
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+   
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    border: 10px solid #888; /* Bordes más grandes */
+    width: 70%; /* Ancho del contenido */
+    background-color: #fefefe;
+    border-radius: 35px;
+}
+
+/* Estilos para el botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 999; /* Asegura que esté en la parte superior */
+}
+
+/* Estilos para el video dentro del modal */
+#videoPlayer {
+    width: 100%; /* Utiliza el ancho completo del contenedor */
+    height: 100%; /* Utiliza el alto completo del contenedor */
+}
+
+/* Header styles */
+header {
+    background-color: #6a8e23c8;
+    
+    padding: -1px 0;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    margin-top: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    flex-direction: row; /* Asegura que la dirección es en fila */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para el contenido del header */
+header h1 {
+    color: rgb(19, 19, 15); /* Color del texto blanco */
+    margin: 0; /* Elimina los márgenes para un mejor alineamiento */
+}
+
+/* Estilos para el logo en el header */
+header img {
+    width: 10px;
+    vertical-align: middle;
+}
+/* Estilos para el botón de cambio de modo en el header */
+header #darkModeToggle {
+    background-color: transparent; /* Botón sin color de fondo */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de puntero */
+}
+/* Estilos para el footer */
+
+footer {
+    
+    background-color: #6a8e23c8;
+    color: white; /* Cambiado a blanco para el texto del footer */
+   
+    text-align: center;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para alinear los elementos verticalmente */
+    align-items: center;
+}
+
+footer .download-button.video-button {
+    background-color: #79904cc8;
+    color: rgb(255, 255, 255);
+    border: 2px solid #000000c8;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Espacio inferior entre botones */
+    display: flex;
+    top: 20px;
+    left: -5px;
+}
+
+
+/* Estilos para el texto dentro del footer */
+footer p {
+    margin-bottom: 10px;
+ 
+}
+
+
+/* Estilos para el logo dentro del footer */
+footer img {
+    width: 50px;
+    /*vertical-align: middle;*/
+}
+
+/**/
+/* Media queries para modo oscuro en dispositivos móviles */
+
+@media screen and (max-width: 768px) {
+    /* Estilos específicos para pantallas de hasta 768px de ancho */
+    body {
+        font-size: 14px; /* Ajusta el tamaño de fuente */
+    }
+
+    h1 {
+        font-size: 24px; /* Ajusta el tamaño de fuente */
+    }
+
+    .contenedor-galeria {
+        width: 100%; /* Ajusta el ancho del contenedor de la galería */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Estilos específicos para pantallas de hasta 480px de ancho */
+    body {
+        font-size: 12px; /* Ajusta el tamaño de fuente */
+    }
+
+    h1 {
+        font-size: 20px; /* Ajusta el tamaño de fuente */
+    }
+}
+
+
+/**/
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background: linear-gradient( #363838, #1d1d1c); 
+
+    color: #857e7e;
+  }
+  
+
+
+  h1.dark-mode {
+    text-align: center;
+    margin-top: 98px;
+    margin-bottom: 50px;
+    color: olive;
+    text-shadow: 0 1px 2px #000;
+  }
+  
+  p.dark-mode {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: rgb(228, 249, 0);
+    text-shadow: 0 1px 2px #000;
+    font-size: 30px;
+  }
+  
+  /* Ajustes para el contenedor de la galería */
+  .contenedor-galeria.dark-mode {
+    width: 900px;
+    height: 400px;
+    overflow: hidden;
+    margin: 50px auto;
+    box-shadow: 0 0 10px 1px rgba(92, 89, 89, 0.35);
+  }
+  
+  /* Header styles */
+header.dark-mode {
+    background-color: #2e3a16c8;
+    color: rgb(79, 74, 74);
+    padding: -1px 0;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    margin-top: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 4px 8px rgba(76, 70, 70, 0.2);
+    display: flex;
+    flex-direction: row; /* Asegura que la dirección es en fila */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para el contenido del header */
+header h1.dark-mode {
+    color: rgb(128, 122, 122); /* Color del texto blanco */
+    margin: 0; /* Elimina los márgenes para un mejor alineamiento */
+}
+
+/* Estilos para el logo en el header */
+header img {
+    width: 50px;
+    vertical-align: middle;
+}
+
+/* Estilos para el botón de cambio de modo en el header */
+header #darkModeToggle {
+    background-color: transparent; /* Botón sin color de fondo */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de puntero */
+}
+/* Estilos para el footer */
+header h1.dark-mode {
+    color: rgb(128, 122, 122); /* Color del texto */
+    margin: 0; /* Elimina los márgenes para un mejor alineamiento */
+  }
+  
+  /* Estilos para el logo en el header */
+  header img {
+    width: 50px;
+    vertical-align: middle;
+  }
+  
+  /* Estilos para el botón de cambio de modo en el header */
+  header #darkModeToggle {
+    background-color: transparent; /* Botón sin color de fondo */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de puntero */
+  }
+  
+  /* Estilos para el footer en modo oscuro */
+  footer.dark-mode {
+    background-color: #2e3a16c8;
+    color: rgb(70, 74, 74);
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 -4px 8px rgba(94, 85, 85, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+  }
+  
+  footer .download-button.dark-mode {
+    background-color: #6f713dc8;
+    color: rgb(166, 160, 160);
+    border: 2px solid #000000c8;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    top: 20px;
+    left: -5px;
+}
+/*
+footer .video-button.dark-mode {
+    background-color: #f7ff05c8;
+    color: rgb(166, 160, 160);
+    border: 2px solid #000000c8;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    top: 20px;
+    left: -5px;
+}*/
+
+
+  footer .inner-paragraph.dark-mode {
+    color: rgb(120, 105, 105); /* Color del texto */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+  /* Estilos para el logo en el footer */
+  footer img {
+    width: 50px;
+    vertical-align: middle;
+  }
+
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .button-container {
+        flex-direction: column; /* Cambia la dirección a columna para dispositivos móviles */
+        align-items: center; /* Centra los botones verticalmente */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .download-button {
+        width: 100%; /* Los botones ocupan todo el ancho en dispositivos móviles */
+        margin: 10px 0; /* Espacio entre los botones en dispositivos móviles */
+    }
+}
